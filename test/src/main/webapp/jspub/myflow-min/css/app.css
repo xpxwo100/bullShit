@@ -1,6 +1,0 @@
-﻿
-/* node buttons */
-.node-buttons{width:38px;height:14px;background-color:#EEE;border:1px solid #999;border-radius:5px 5px 5px 5px;bottom:-14px;position:absolute;padding:5px 0 5px 5px;}
-.node-buttons .icon{display:block;float:left;margin-right:5px;background:url(../img/icons_sprite.png) no-repeat scroll 0 0 transparent;}
-.node-buttons .icon.icon-copy{background-position:-84px 0;height:15px;width:14px;}
-.node-buttons .icon.icon-delete{background-position:-70px -15px;height:15px;width:14px;}

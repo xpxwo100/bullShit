@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="yui">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/src/main/webapp/jspub/dhtmlx/4.0.3source/libCompiler/yui.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

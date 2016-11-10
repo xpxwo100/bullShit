@@ -1,6 +1,0 @@
-function showBusy()
-{
-}
-function closeBusy()
-{
-}

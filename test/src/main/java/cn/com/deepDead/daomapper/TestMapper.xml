@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.com.deepDead.daomapper.TestMapper">
+
+    <cache eviction="FIFO" readOnly="true" flushInterval="30000" size="1024"/>
+    <!-- 二级缓存.三方缓存方式
+    <cache type="org.mybatis.caches.memcached.MemcachedCache"/>
+    -->
+  
+    <resultMap id="ScWorkProcessResultMap" type="hashmap"> 
+    
+    </resultMap>
+	<!--统计及主键查询-->
+	<select id="getCount" resultType="Integer" flushCache="true" useCache="false">
+		SELECT
+   			 COUNT(1)
+		FROM
+   			 system_users
+	</select>
+   
+</mapper> 

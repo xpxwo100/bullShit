@@ -1,0 +1,215 @@
+
+@charset "UTF-8";
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    -moz-font-feature-settings: inherit;
+    -moz-font-language-override: inherit;
+    border: 0 none;
+    font-family: inherit;
+    font-size: 100%;
+    font-size-adjust: inherit;
+    font-stretch: inherit;
+    font-style: inherit;
+    font-variant: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+legend, table, caption, tbody, tfoot, thead, tr, th, td {
+    -moz-font-feature-settings: inherit;
+    -moz-font-language-override: inherit;
+    font-family: inherit;
+    font-size: 100%;
+    font-size-adjust: inherit;
+    font-stretch: inherit;
+    font-style: inherit;
+    font-variant: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+html {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none outside none;
+}
+
+.y-span1, .y-span2, .y-span3, .y-span4, .y-span5, .y-span6, .y-span7, .y-span8, .y-span9, .y-span10, .y-span11, .y-span12 {
+    float: left;
+    margin-right: 2%;
+}
+.y-span9 {
+    width: 100%;
+}
+html {
+    font-size: 62.5%;
+}
+body {
+    background-color: #FBFAF8;
+    color: #666666;
+    font-family: "微软雅黑","Microsoft Yahei","Hiragino Sans GB",tahoma,arial,"宋体" !important;
+    font-size: 12px;
+    line-height: 1.8em;
+    text-rendering: auto;
+}
+a {
+    color: #666666;
+    cursor: pointer;
+    text-decoration: none;
+}
+.xxx:hover {
+    color: white;
+    text-decoration: none;
+}
+.xxx {
+    color: black;
+    text-decoration: none;
+}
+a:hover {
+    color: #00A2CA;
+    text-decoration: underline;
+}
+header {
+    min-width: 998px;
+}
+.header-wrap {
+    background: url("../images/inner_logo.png") 2px no-repeat #00A2CA;
+    height: 45px;
+    position: relative;
+    z-index: 103;
+}
+.header-wrap .header-inner {
+    height: 45px;
+    margin: auto;
+}
+.header-wrap .header-inner nav {
+    clear: right;
+    float: left;
+    height: 45px;
+    overflow: hidden;
+    margin-left:215px;
+}
+.header-wrap .header-inner nav ul {
+    float: left;
+    margin: 0;
+}
+.header-wrap .header-inner nav ul li {
+    float: left;
+    font-size: 16px;
+    height: 45px;
+    line-height: 50px;
+    padding: 0 10px;
+}
+.header-wrap .header-inner nav ul li h2 {
+    color: #FFFFFF;
+    cursor: default;
+    font-size: 16px;
+    font-weight: normal;
+}
+.header-wrap .header-inner nav ul li.selected {
+    background-color: #0095BB;
+}
+.header-wrap .logout:hover{
+	color:#FFFFFF
+}
+.sub-menus {
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 30px;
+    z-index: 102;
+}
+.sub-menus .sub-menu {
+	background: rgba(50, 50, 50, 0.9) none repeat scroll 0 0;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#E5323232,endColorstr=#E5323232);  
+    /* background: rgba(50, 50, 50, 0.8); */
+    margin: 0;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    top: -500px;
+    transition-duration: 550ms;
+    transition-timing-function: cubic-bezier(0.17, 0.5, 0.44, 0.36);
+    width: 100%;
+}
+.sub-menus .sub-menu.show {
+	/*filter:alpha(opacity=50);  
+    -moz-opacity:0.5;  
+    -khtml-opacity: 0.5; */
+    opacity: 1;  
+    top: 0;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.73, 0.67, 0.77, 0.92);
+}
+.sub-menus .sub-menu dl {
+    float: left;
+    font-size: 14px;
+    padding: 10px 30px 10px 0px;
+}
+.sub-menus .sub-menu dl dt {
+    border-bottom: 1px solid #666666;
+    color: #959595;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+}
+.sub-menus .sub-menu dl dd {
+    margin-bottom: 5px;
+    margin-left: -5px;
+    padding: 2px 0;
+}
+.sub-menus .sub-menu dl dd a {
+	color: white;
+    padding: 0 5px;
+}
+.sub-menus .sub-menu dl dd a:hover, .sub-menus .sub-menu dl dd a.current {
+    color: #00A2CA;
+    text-decoration: none;
+}
+.nav-at-1 .nav-1, .nav-at-2 .nav-2, .nav-at-3 .nav-3, .nav-at-4 .nav-4, .nav-at-5 .nav-5, .nav-at-6 .nav-6, .nav-at-7 .nav-7 {
+    background-color: #048BAF;
+}
+@media screen and (max-width: 1220px) {
+	#J_Menu h2 {
+	    font-size: 15px;
+	}
+	#J_subMenus dl {
+	    padding: 10px 25px 10px 0px;
+	}
+	#J_subMenus dt {
+	    font-size: 12px;
+	}
+	#J_subMenus dd {
+	    font-size: 12px;
+	    padding: 2px 0;
+	}
+	.header-wrap .header-inner nav ul li {
+	    padding: 0 12px;
+	}
+}
+@media screen and (max-width: 1030px) {
+	#J_subMenus dl {
+	    padding: 10px 10px 10px 0px;
+	}
+	.header-wrap .header-inner nav ul li {
+	    padding: 0 5px;
+	}
+}
+@media screen and (max-width: 810px) {
+	#J_Headerwrap{
+		background: url("../images/inner_logo.png") no-repeat #00A2CA;
+	}
+	#J_Headerwrap nav{
+		margin-left:112px;
+	}
+	#J_Menu h2 {
+	    font-size: 8px;
+	}
+	.header-wrap .header-inner nav ul li {
+	    padding: 0 4px;
+	}
+}

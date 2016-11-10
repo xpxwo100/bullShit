@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.deepDead.pom</groupId>
+	<artifactId>com.deepDead.pom</artifactId>
+	<!-- <version>1.0</version> -->
+	<packaging>pom</packaging>
+
+	<name>parent.pom</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<!--UTF-8,GBK在*.java共存，需编译去掉以下配置 -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.resources.sourceEncoding>UTF-8</project.resources.sourceEncoding>
+		<hibernate.version>4.3.10.Final</hibernate.version>
+	</properties>
+
+	<parent>
+		<groupId>cn.com.aperfect.auap.pom</groupId>
+		<artifactId>cn.com.aperfect.auap.pom</artifactId>
+		<version>1.0</version>
+		<relativePath>../aperfect-scm-pom</relativePath>
+	</parent>
+
+	<modules>
+		<!-- 基础模块 <module>../auap-dto</module> <module>../auap-external</module> 
+			<module>../auap-common</module> <module>../auap-core</module> <module>../auap-base</module> -->
+		<!-- EJB模块 <module>../auap-biz-client</module> <module>../auap-biz</module> 
+			<module>../auap-biz-web</module> -->
+		<!-- 工作流web <module>../workflow-diagram</module> -->
+	</modules>
+	<!-- 子模块 -->
+	<repositories>
+		<repository>
+			<id>aperfect-local-maven</id>
+			<name>aperfect localmaven</name>
+			<url>http://119.29.171.71:8089/nexus/content/groups/public/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>spring-snapshots</id>
+			<url>http://repo.spring.io/libs-snapshot</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>central</id>
+			<name>Maven Repository Switchboard</name>
+			<layout>default</layout>
+			<!-- <url>http://repo1.maven.org/maven2</url> -->
+			<url>http://119.29.171.71:8089/nexus/content/groups/public/</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>aperfect-local-maven</id>
+			<name>aperfect localmaven</name>
+			<url>http://119.29.171.71:8089/nexus/content/groups/public/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+		<pluginRepository>
+			<id>central</id>
+			<name>Maven Plugin Repository</name>
+			<!-- <url>http://repo1.maven.org/maven2</url> -->
+			<url>http://119.29.171.71:8089/nexus/content/groups/public/</url>
+			<layout>default</layout>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<releases>
+				<updatePolicy>never</updatePolicy>
+			</releases>
+		</pluginRepository>
+		<pluginRepository>
+			<id>spring-snapshots</id>
+			<url>http://repo.spring.io/libs-snapshot</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+	<!--运行 mvn deploy 时上传构件到本地仓库 -->
+	<distributionManagement>
+		<repository>
+			<id>nexus-releases</id>
+			<name>Nexus Release Repository</name>
+			<url>http://119.29.171.71:8089/nexus/content/repositories/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>nexus-snapshots</id>
+			<name>Nexus Snapshot Repository</name>
+			<url>http://119.29.171.71:8089/nexus/content/repositories/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<build>
+		<defaultGoal>compile</defaultGoal>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<!-- 解决：……是 Sun 的专用 API，可能会在未来版本中删除的错误 -->
+				<configuration>
+					<compilerArguments>
+						<verbose />
+						<!-- 避免maven编译时找错rt.jar包 -->
+						<bootclasspath>${java.home}/lib/rt.jar</bootclasspath>
+					</compilerArguments>
+					<!-- 指定高版本的JDK -->
+					<source>1.7</source>
+					<target>1.7</target>
+					<!--UTF-8,GBK在*.java共存，编译去掉以下配置 <encoding>${project.build.sourceEncoding}</encoding> 
+						<sourceEncoding>${project.build.sourceEncoding}</sourceEncoding> -->
+					<!-- 排除 test <excludes> <exclude>aperfect.project.test.*</exclude> </excludes> -->
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+					<!-- -->
+					<warSourceDirectory>WebRoot</warSourceDirectory>
+					<!-- 显示的声明web.xml的位置，要不然会默认读取src\main\webapp\web-inf\web.xml出错 -->
+					<webXml>WebRoot\WEB-INF\web.xml</webXml>
+				</configuration>
+			</plugin>
+		</plugins>
+		<directory>target</directory>
+		<outputDirectory>target/classes</outputDirectory>
+		<finalName>${artifactId}-${version}</finalName>
+		<sourceDirectory>src/</sourceDirectory>
+	</build>
+
+	<dependencies>
+		<!-- orm:hibernate -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.github.debop</groupId>
+		    <artifactId>hibernate-redis</artifactId>
+		    <version>1.6.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.xerial.snappy</groupId>
+			<artifactId>snappy-java</artifactId>
+			<version>1.1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>3.1</version>
+		</dependency>
+	</dependencies>
+</project>

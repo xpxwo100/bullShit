@@ -22,7 +22,7 @@ public abstract class RabbitMqEndPoint {
 	public RabbitMqEndPoint() throws IOException, TimeoutException {
 		this("dog");
 	}
-	public  RabbitMqEndPoint(String exchangeName) throws IOException{
+	public  RabbitMqEndPoint(String exchangeName) throws IOException, TimeoutException{
 		this.exchangeName = exchangeName;
 		ConnectionFactory factory = new ConnectionFactory();
 		factory.setHost("localhost");

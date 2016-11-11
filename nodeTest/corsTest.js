@@ -33,6 +33,23 @@ app.post('/userLogin',function (req, res,next) {
 		      res.send(data);  
 		   });
 });
+
+app.get('/lookMap',function (req, res,next) {
+	   var a=req.body.login;  
+	   var b=req.body.password;
+	   console.log(a+'....'+b);
+	   console.log(req.body);//对象形式
+	   res.setHeader("Content-Type", "text/html; charset=UTF-8");  
+	   fs.readFile('public/baidu.jsp', function (err, data) {
+		      if (err) {
+		          return console.error(err);
+		      }
+		      console.log("异步读取: " + data.toString());
+		      res.send(data);  
+		   });
+});
+
+
 //登录页
 app.get('/login',function (req, res,next) {
 	 var sum = testAdd.show(121,7374);

@@ -5,7 +5,7 @@
 var express = require('express')
   , cors = require('cors')
   , app = express();
-var test  = require('./testAdd');
+var test  = require('./public/testAdd');
 var https = require('https');
 var testAdd = new test();
 var request = require('request');

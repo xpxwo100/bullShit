@@ -5,6 +5,7 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/resources"/>
         <wb-resource deploy-path="/" source-path="/src/main/webapp"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/main"/>
         <property name="context-root" value="com-deepDead-core"/>
         <property name="java-output-path" value="/com-deepDead-core/target/classes"/>
     </wb-module>

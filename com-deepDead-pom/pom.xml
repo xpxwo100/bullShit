@@ -3,15 +3,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
 	<groupId>com.deepDead.pom</groupId>
 	<artifactId>com.deepDead.pom</artifactId>
-	<!-- <version>1.0</version> -->
+	<version>1.0</version>
 	<packaging>pom</packaging>
 
 	<name>parent.pom</name>
 	<url>http://maven.apache.org</url>
-
 
 	<properties>
 		<!--UTF-8,GBK在*.java共存，需编译去掉以下配置 -->
@@ -19,24 +17,22 @@
 		<project.resources.sourceEncoding>UTF-8</project.resources.sourceEncoding>
 		<spring.version>4.2.1.RELEASE</spring.version>
 		<spring-integration.version>4.2.0.RELEASE</spring-integration.version>
-		<jackson.version>2.6.6</jackson.version>
+		<jackson.version>2.6.6</jackson.version> 
 		<protostuff.version>1.4.0</protostuff.version>
 		<fst.version>2.45</fst.version>
 		<bouncycastle.version>1.53</bouncycastle.version>
-		<slf4j.version>1.7.14</slf4j.version> 
+		<slf4j.version>1.7.14</slf4j.version>
 		<httpclient.version>4.4.1</httpclient.version>
-		<!--UTF-8,GBK在*.java共存，需编译去掉以下配置 -->
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.resources.sourceEncoding>UTF-8</project.resources.sourceEncoding>
 		<hibernate.version>4.3.10.Final</hibernate.version>
-	</properties> 
+	</properties>
 
-	<modules>
-		<!-- 基础模块 <module>../auap-dto</module> <module>../auap-external</module> 
-			<module>../auap-common</module> <module>../auap-core</module> <module>../auap-base</module> -->
-		<!-- EJB模块 <module>../auap-biz-client</module> <module>../auap-biz</module> 
-			<module>../auap-biz-web</module> -->
-		<!-- 工作流web <module>../workflow-diagram</module> -->
+  	<modules>
+  		<!-- 
+  		<module>../aperfect-scm-core</module>
+		<module>../aperfect-scm-buz</module>
+		<module>../aperfect-scm-dev</module>
+		<module>../aperfect-scm-web</module>
+  		 -->
 	</modules>
 	<!-- 子模块 -->
 	<repositories>
@@ -62,8 +58,10 @@
 			<id>central</id>
 			<name>Maven Repository Switchboard</name>
 			<layout>default</layout>
-			<!-- <url>http://repo1.maven.org/maven2</url> -->
-			<url>http://119.29.171.71:8089/nexus/content/groups/public/</url>
+      		<!--
+      		<url>http://119.29.171.71:8089/nexus/content/groups/public/</url>
+      		-->
+      		<url>http://repo1.maven.org/maven2</url>
 			<snapshots>
 				<enabled>true</enabled>
 			</snapshots>
@@ -84,8 +82,10 @@
 		<pluginRepository>
 			<id>central</id>
 			<name>Maven Plugin Repository</name>
-			<!-- <url>http://repo1.maven.org/maven2</url> -->
+			<!--
 			<url>http://119.29.171.71:8089/nexus/content/groups/public/</url>
+		    -->
+      		<url>http://repo1.maven.org/maven2</url>
 			<layout>default</layout>
 			<snapshots>
 				<enabled>true</enabled>
@@ -112,7 +112,7 @@
 		<snapshotRepository>
 			<id>nexus-snapshots</id>
 			<name>Nexus Snapshot Repository</name>
-			<url>http://119.29.171.71:8089/nexus/content/repositories/snapshots/</url>
+			<url>http://119.29.171.71:8089/nexus/content/repositories/snapshots/</url> 
 		</snapshotRepository>
 	</distributionManagement>
 
@@ -123,41 +123,46 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<!-- 解决：……是 Sun 的专用 API，可能会在未来版本中删除的错误 -->
-				<!-- <configuration>
+				<configuration>
 					<compilerArguments>
 						<verbose />
-						避免maven编译时找错rt.jar包
+						<!-- 避免maven编译时找错rt.jar包 -->
 						<bootclasspath>${java.home}/lib/rt.jar</bootclasspath>
 					</compilerArguments>
-					指定高版本的JDK
+					<!-- 指定高版本的JDK -->
 					<source>1.7</source>
 					<target>1.7</target>
-					UTF-8,GBK在*.java共存，编译去掉以下配置 <encoding>${project.build.sourceEncoding}</encoding> 
-						<sourceEncoding>${project.build.sourceEncoding}</sourceEncoding>
-					排除 test <excludes> <exclude>aperfect.project.test.*</exclude> </excludes>
-				</configuration> -->
+					<!--UTF-8,GBK在*.java共存，编译去掉以下配置 
+          			<encoding>${project.build.sourceEncoding}</encoding> 
+					<sourceEncoding>${project.build.sourceEncoding}</sourceEncoding> 
+          			-->
+					<!-- 排除 test 
+          			<excludes>
+						<exclude>aperfect.project.test.*</exclude> 
+					</excludes>
+          			-->
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
 				<configuration>
 					<source>1.7</source>
-					<target>1.7</target> 
-					<!-- -->
-					<warSourceDirectory>WebRoot</warSourceDirectory>
-					<!-- 显示的声明web.xml的位置，要不然会默认读取src\main\webapp\web-inf\web.xml出错 -->
-					<webXml>WebRoot\WEB-INF\web.xml</webXml>
+					<target>1.7</target>
+			          <warSourceDirectory>WebRoot</warSourceDirectory>
+					  <!-- 显示的声明web.xml的位置，要不然会默认读取src\main\webapp\web-inf\web.xml出错   -->
+			          <webXml>WebRoot\WEB-INF\web.xml</webXml>
 				</configuration>
 			</plugin>
 		</plugins>
 		<directory>target</directory>
 		<outputDirectory>target/classes</outputDirectory>
-		<!-- <finalName>${artifactId}-${version}</finalName> -->
-		<sourceDirectory>src/</sourceDirectory>
+		<finalName>${artifactId}-${version}</finalName>
+		<!-- 设置源码所在路径 -->
+	    <sourceDirectory>src/</sourceDirectory>
 	</build>
 
-
-<dependencies>
+	<dependencies>
 		<!-- 单元测试:JUnit -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -1102,6 +1107,7 @@
 			<artifactId>c3p0</artifactId>
 			<version>0.9.1.2</version>
 		</dependency>
+		
 		<!-- sap jco3 -->
 		<!-- 
 		<dependency>
@@ -1110,34 +1116,12 @@
 			<version>3.0</version>
 		</dependency> 
 		-->
-		<!-- 公司核心库 -->
-		<dependency>
-		  <groupId>aperfect.project</groupId>
-		  <artifactId>aperfect.core</artifactId>
-		  <version>1.3.3</version>
-		</dependency>
-		<dependency>
-		 	<groupId>aperfect.project</groupId>
-		 	<artifactId>aperfect.core.web</artifactId>
-			<version>1.1</version>
-		</dependency>
-		<dependency>
-		  <groupId>aperfect.project</groupId>
-		  <artifactId>aperfect.core.tnf</artifactId>
-		  <version>1.9.1</version>
-		</dependency>
-		<dependency>
-		  <groupId>aperfect.pay</groupId>
-		  <artifactId>aperfect.pay.interfaces</artifactId>
-		  <version>1.2.9</version>       
-		</dependency>
-		
 		<dependency>
             <groupId>com.rabbitmq</groupId>
             <artifactId>amqp-client</artifactId>
             <version>3.6.4</version>
         </dependency>
-			<dependency>
+		<dependency>
 	　　　　<groupId>org.apache.thrift</groupId>
 	　　　　<artifactId>libthrift</artifactId>
 	　　　　<version>0.9.3</version>
@@ -1147,5 +1131,35 @@
 		　　　　<artifactId>slf4j-api</artifactId> 
 		　　　　<version>1.7.13</version> 
 		　　</dependency>
+				<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.github.debop</groupId>
+		    <artifactId>hibernate-redis</artifactId>
+		    <version>1.6.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.xerial.snappy</groupId>
+			<artifactId>snappy-java</artifactId>
+			<version>1.1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>3.1</version>
+		</dependency>
 	</dependencies>
 </project>

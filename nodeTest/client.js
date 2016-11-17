@@ -1,3 +1,6 @@
+/**
+ * thrift RPC调用
+ */
 var thrift = require('thrift');
 var login_types = require('./gen-nodejs/login_types');
 var userService = require('./gen-nodejs/UserService');

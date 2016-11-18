@@ -17,7 +17,7 @@
 		<project.resources.sourceEncoding>UTF-8</project.resources.sourceEncoding>
 		<spring.version>4.2.1.RELEASE</spring.version>
 		<spring-integration.version>4.2.0.RELEASE</spring-integration.version>
-		<jackson.version>2.6.6</jackson.version> 
+		<jackson.version>2.6.6</jackson.version>
 		<protostuff.version>1.4.0</protostuff.version>
 		<fst.version>2.45</fst.version>
 		<bouncycastle.version>1.53</bouncycastle.version>
@@ -26,13 +26,9 @@
 		<hibernate.version>4.3.10.Final</hibernate.version>
 	</properties>
 
-  	<modules>
-  		<!-- 
-  		<module>../aperfect-scm-core</module>
-		<module>../aperfect-scm-buz</module>
-		<module>../aperfect-scm-dev</module>
-		<module>../aperfect-scm-web</module>
-  		 -->
+	<modules>
+		<!-- <module>../aperfect-scm-core</module> <module>../aperfect-scm-buz</module> 
+			<module>../aperfect-scm-dev</module> <module>../aperfect-scm-web</module> -->
 	</modules>
 	<!-- 子模块 -->
 	<repositories>
@@ -58,10 +54,8 @@
 			<id>central</id>
 			<name>Maven Repository Switchboard</name>
 			<layout>default</layout>
-      		<!--
-      		<url>http://119.29.171.71:8089/nexus/content/groups/public/</url>
-      		-->
-      		<url>http://repo1.maven.org/maven2</url>
+			<!-- <url>http://119.29.171.71:8089/nexus/content/groups/public/</url> -->
+			<url>http://repo1.maven.org/maven2</url>
 			<snapshots>
 				<enabled>true</enabled>
 			</snapshots>
@@ -82,10 +76,8 @@
 		<pluginRepository>
 			<id>central</id>
 			<name>Maven Plugin Repository</name>
-			<!--
-			<url>http://119.29.171.71:8089/nexus/content/groups/public/</url>
-		    -->
-      		<url>http://repo1.maven.org/maven2</url>
+			<!-- <url>http://119.29.171.71:8089/nexus/content/groups/public/</url> -->
+			<url>http://repo1.maven.org/maven2</url>
 			<layout>default</layout>
 			<snapshots>
 				<enabled>true</enabled>
@@ -112,7 +104,7 @@
 		<snapshotRepository>
 			<id>nexus-snapshots</id>
 			<name>Nexus Snapshot Repository</name>
-			<url>http://119.29.171.71:8089/nexus/content/repositories/snapshots/</url> 
+			<url>http://119.29.171.71:8089/nexus/content/repositories/snapshots/</url>
 		</snapshotRepository>
 	</distributionManagement>
 
@@ -132,15 +124,9 @@
 					<!-- 指定高版本的JDK -->
 					<source>1.7</source>
 					<target>1.7</target>
-					<!--UTF-8,GBK在*.java共存，编译去掉以下配置 
-          			<encoding>${project.build.sourceEncoding}</encoding> 
-					<sourceEncoding>${project.build.sourceEncoding}</sourceEncoding> 
-          			-->
-					<!-- 排除 test 
-          			<excludes>
-						<exclude>aperfect.project.test.*</exclude> 
-					</excludes>
-          			-->
+					<!--UTF-8,GBK在*.java共存，编译去掉以下配置 <encoding>${project.build.sourceEncoding}</encoding> 
+						<sourceEncoding>${project.build.sourceEncoding}</sourceEncoding> -->
+					<!-- 排除 test <excludes> <exclude>aperfect.project.test.*</exclude> </excludes> -->
 				</configuration>
 			</plugin>
 			<plugin>
@@ -149,9 +135,9 @@
 				<configuration>
 					<source>1.7</source>
 					<target>1.7</target>
-			          <warSourceDirectory>WebRoot</warSourceDirectory>
-					  <!-- 显示的声明web.xml的位置，要不然会默认读取src\main\webapp\web-inf\web.xml出错   -->
-			          <webXml>WebRoot\WEB-INF\web.xml</webXml>
+					<warSourceDirectory>WebRoot</warSourceDirectory>
+					<!-- 显示的声明web.xml的位置，要不然会默认读取src\main\webapp\web-inf\web.xml出错 -->
+					<webXml>WebRoot\WEB-INF\web.xml</webXml>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -159,7 +145,7 @@
 		<outputDirectory>target/classes</outputDirectory>
 		<finalName>${artifactId}-${version}</finalName>
 		<!-- 设置源码所在路径 -->
-	    <sourceDirectory>src/</sourceDirectory>
+		<sourceDirectory>src/</sourceDirectory>
 	</build>
 
 	<dependencies>
@@ -191,7 +177,7 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-		<!-- 基础库-->
+		<!-- 基础库 -->
 		<!-- htmlcompressor需要14.0.1及以前版本 -->
 		<dependency>
 			<groupId>com.google.guava</groupId>
@@ -261,9 +247,9 @@
 		</dependency>
 		<dependency>
 			<groupId>commons-digester</groupId>
-  			<artifactId>commons-digester</artifactId>
-  			<version>2.1</version>
-  		</dependency>
+			<artifactId>commons-digester</artifactId>
+			<version>2.1</version>
+		</dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-email</artifactId>
@@ -326,26 +312,26 @@
 			<artifactId>spring-messaging</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		
-		<!-- spring ftp 连接池-->
+
+		<!-- spring ftp 连接池 -->
 		<dependency>
 			<groupId>org.springframework.integration</groupId>
 			<artifactId>spring-integration-ftp</artifactId>
 			<version>${spring-integration.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework.integration</groupId>
 			<artifactId>spring-integration-file</artifactId>
 			<version>${spring-integration.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework.integration</groupId>
 			<artifactId>spring-integration-core</artifactId>
@@ -362,13 +348,8 @@
 			<artifactId>slf4j-api</artifactId>
 			<version>1.7.12</version>
 		</dependency>
-		<!-- 在activemq中包含,暂时去掉 
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-nop</artifactId>
-			<version>1.7.12</version>
-		</dependency>
-		-->
+		<!-- 在activemq中包含,暂时去掉 <dependency> <groupId>org.slf4j</groupId> <artifactId>slf4j-nop</artifactId> 
+			<version>1.7.12</version> </dependency> -->
 		<!-- 序列化及XML -->
 		<dependency>
 			<groupId>jaxen</groupId>
@@ -382,9 +363,9 @@
 			<exclusions>
 				<exclusion>
 					<groupId>xml-apis</groupId>
-  					<artifactId>xml-apis</artifactId>
+					<artifactId>xml-apis</artifactId>
 				</exclusion>
-			</exclusions> 
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>com.thoughtworks.xstream</groupId>
@@ -393,11 +374,11 @@
 			<exclusions>
 				<exclusion>
 					<groupId>xmlpull</groupId>
-  					<artifactId>xmlpull</artifactId>
+					<artifactId>xmlpull</artifactId>
 				</exclusion>
 				<exclusion>
 					<groupId>xpp3</groupId>
-    				<artifactId>xpp3_min</artifactId>
+					<artifactId>xpp3_min</artifactId>
 				</exclusion>
 			</exclusions>
 		</dependency>
@@ -438,7 +419,7 @@
 			<artifactId>protostuff-core</artifactId>
 			<version>${protostuff.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>io.protostuff</groupId>
 			<artifactId>protostuff-api</artifactId>
@@ -469,34 +450,22 @@
 			<artifactId>protostuff-xml</artifactId>
 			<version>${protostuff.version}</version>
 		</dependency>
-		<!-- 
+		<!-- <dependency> <groupId>io.protostuff</groupId> <artifactId>protostuff-compiler</artifactId> 
+			<version>${protostuff.version}</version> </dependency> <dependency> <groupId>io.protostuff</groupId> 
+			<artifactId>protostuff-codegen</artifactId> <version>${protostuff.version}</version> 
+			</dependency> <dependency> <groupId>io.protostuff</groupId> <artifactId>protostuff-parser</artifactId> 
+			<version>${protostuff.version}</version> </dependency> -->
+		<!-- 序列化:Java FSL -->
 		<dependency>
-			<groupId>io.protostuff</groupId>
-			<artifactId>protostuff-compiler</artifactId>
-			<version>${protostuff.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>io.protostuff</groupId>
-			<artifactId>protostuff-codegen</artifactId>
-			<version>${protostuff.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>io.protostuff</groupId>
-			<artifactId>protostuff-parser</artifactId>
-			<version>${protostuff.version}</version>
-		</dependency>
-		 -->
-		 <!-- 序列化:Java FSL -->
-		 <dependency>
-		    <groupId>de.ruedigermoeller</groupId>
-		    <artifactId>fst</artifactId>
-		    <version>${fst.version}</version>
+			<groupId>de.ruedigermoeller</groupId>
+			<artifactId>fst</artifactId>
+			<version>${fst.version}</version>
 		</dependency>
 		<!-- 序列化:protobuf -->
 		<dependency>
-		    <groupId>com.google.protobuf</groupId>
-		    <artifactId>protobuf-java</artifactId>
-		    <version>2.6.1</version>
+			<groupId>com.google.protobuf</groupId>
+			<artifactId>protobuf-java</artifactId>
+			<version>2.6.1</version>
 		</dependency>
 		<dependency>
 			<groupId>com.googlecode.protobuf-java-format</groupId>
@@ -506,14 +475,14 @@
 		<!-- 序列化:msgpack -->
 		<!-- JDBC及JDBC池 -->
 		<dependency>
-		  <groupId>com.microsoft.sqlserver</groupId>
-		  <artifactId>sqljdbc4</artifactId>
-		  <version>6.0.7728</version>
+			<groupId>com.microsoft.sqlserver</groupId>
+			<artifactId>sqljdbc4</artifactId>
+			<version>6.0.7728</version>
 		</dependency>
 		<dependency>
-		  <groupId>com.oracle</groupId>
-		  <artifactId>ojdbc7</artifactId>
-		  <version>12.1.0.1.0</version>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc7</artifactId>
+			<version>12.1.0.1.0</version>
 		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>
@@ -522,9 +491,9 @@
 		</dependency>
 		<!-- orai18n.jar 支持集合的驱动程序 将java的集合转换为数据库集合类型 -->
 		<dependency>
-		  <groupId>com.oracle</groupId>
-		  <artifactId>orai18n</artifactId>
-		  <version>11.2.0.2.0</version>
+			<groupId>com.oracle</groupId>
+			<artifactId>orai18n</artifactId>
+			<version>11.2.0.2.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.alibaba</groupId>
@@ -559,17 +528,12 @@
 		</dependency>
 		<!-- MyBatis分页插件 -->
 		<dependency>
-		    <groupId>com.github.pagehelper</groupId>
-		    <artifactId>pagehelper</artifactId>
-		    <version>4.1.6</version>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper</artifactId>
+			<version>4.1.6</version>
 		</dependency>
-		<!-- 
-		<dependency>
-			<groupId>com.github.jsqlparser</groupId>
-			<artifactId>jsqlparser</artifactId>
-			<version>0.9.2</version>
-		</dependency>
-		-->
+		<!-- <dependency> <groupId>com.github.jsqlparser</groupId> <artifactId>jsqlparser</artifactId> 
+			<version>0.9.2</version> </dependency> -->
 		<!-- mongodb -->
 		<dependency>
 			<groupId>org.mongodb</groupId>
@@ -605,42 +569,37 @@
 			<exclusions>
 				<exclusion>
 					<groupId>stax</groupId>
-  					<artifactId>stax-api</artifactId>
+					<artifactId>stax-api</artifactId>
 				</exclusion>
 			</exclusions>
 		</dependency>
-		<!-- 
-		<dependency>
-			<groupId>org.codehaus.woodstox</groupId>
-			<artifactId>stax2-api</artifactId>
-			<version>3.1.3</version>
-		</dependency>
-		-->
+		<!-- <dependency> <groupId>org.codehaus.woodstox</groupId> <artifactId>stax2-api</artifactId> 
+			<version>3.1.3</version> </dependency> -->
 		<dependency>
 			<groupId>org.codehaus.woodstox</groupId>
 			<artifactId>woodstox-core-asl</artifactId>
 			<version>4.2.0</version>
 		</dependency>
 		<dependency>
-		  <groupId>com.aspose</groupId>
-		  <artifactId>aspose.words</artifactId>
-		  <version>14.11</version>
-		  <classifier>jdk16</classifier>
+			<groupId>com.aspose</groupId>
+			<artifactId>aspose.words</artifactId>
+			<version>14.11</version>
+			<classifier>jdk16</classifier>
 		</dependency>
 		<dependency>
-		  <groupId>com.aspose</groupId>
-		  <artifactId>aspose.cells</artifactId>
-		  <version>7.7.0</version>
+			<groupId>com.aspose</groupId>
+			<artifactId>aspose.cells</artifactId>
+			<version>7.7.0</version>
 		</dependency>
 		<dependency>
-		  <groupId>com.aspose</groupId>
-		  <artifactId>aspose.pdf</artifactId>
-		  <version>4.5.0</version>
+			<groupId>com.aspose</groupId>
+			<artifactId>aspose.pdf</artifactId>
+			<version>4.5.0</version>
 		</dependency>
 		<dependency>
-		  <groupId>com.aspose</groupId>
-		  <artifactId>aspose.slides</artifactId>
-		  <version>8.1.0</version>
+			<groupId>com.aspose</groupId>
+			<artifactId>aspose.slides</artifactId>
+			<version>8.1.0</version>
 		</dependency>
 		<!-- 内存服务 -->
 		<dependency>
@@ -650,7 +609,7 @@
 			<exclusions>
 				<exclusion>
 					<groupId>org.apache.commons</groupId>
-  					<artifactId>commons-pool2</artifactId>
+					<artifactId>commons-pool2</artifactId>
 				</exclusion>
 			</exclusions>
 		</dependency>
@@ -664,30 +623,13 @@
 			<artifactId>spymemcached</artifactId>
 			<version>2.12.0</version>
 		</dependency>
-		<!-- 
-		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-redis</artifactId>
-			<version>1.5.0.RELEASE</version>
-		</dependency>
-		<dependency>
-			<groupId>com.googlecode.xmemcached</groupId>
-			<artifactId>xmemcached</artifactId>
-			<version>2.0.0</version>
-		</dependency>
-		<dependency>
-			<groupId>net.sf.ehcache</groupId>
-			<artifactId>ehcache</artifactId>
-			<version>2.10.0</version>
-		</dependency>
-		 -->
-		<!-- IReport报表 
-		<dependency>
-			<groupId>net.sf.jasperreports</groupId>
-			<artifactId>jasperreports</artifactId>
-			<version>5.6.0</version>
-		</dependency>
-		-->
+		<!-- <dependency> <groupId>org.springframework.data</groupId> <artifactId>spring-data-redis</artifactId> 
+			<version>1.5.0.RELEASE</version> </dependency> <dependency> <groupId>com.googlecode.xmemcached</groupId> 
+			<artifactId>xmemcached</artifactId> <version>2.0.0</version> </dependency> 
+			<dependency> <groupId>net.sf.ehcache</groupId> <artifactId>ehcache</artifactId> 
+			<version>2.10.0</version> </dependency> -->
+		<!-- IReport报表 <dependency> <groupId>net.sf.jasperreports</groupId> <artifactId>jasperreports</artifactId> 
+			<version>5.6.0</version> </dependency> -->
 		<!-- RPC:Netty 4 -->
 		<dependency>
 			<groupId>io.netty</groupId>
@@ -713,14 +655,14 @@
 			</exclusions>
 		</dependency>
 		<dependency>
-		    <groupId>org.glassfish.grizzly</groupId>
-		    <artifactId>connection-pool</artifactId>
-		    <version>2.3.22</version>
+			<groupId>org.glassfish.grizzly</groupId>
+			<artifactId>connection-pool</artifactId>
+			<version>2.3.22</version>
 		</dependency>
 		<dependency>
-		    <groupId>org.glassfish.grizzly</groupId>
-		    <artifactId>grizzly-websockets</artifactId>
-		    <version>2.3.22</version>
+			<groupId>org.glassfish.grizzly</groupId>
+			<artifactId>grizzly-websockets</artifactId>
+			<version>2.3.22</version>
 		</dependency>
 		<!-- HttpClient4 -->
 		<dependency>
@@ -749,13 +691,8 @@
 			<artifactId>httpmime</artifactId>
 			<version>${httpclient.version}</version>
 		</dependency>
-		<!-- 
-		<dependency>
-			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpasyncclient</artifactId>
-			<version>${httpclient.version}</version>
-		</dependency>
-		 -->
+		<!-- <dependency> <groupId>org.apache.httpcomponents</groupId> <artifactId>httpasyncclient</artifactId> 
+			<version>${httpclient.version}</version> </dependency> -->
 		<!-- 数据推送 -->
 		<dependency>
 			<groupId>org.apache</groupId>
@@ -781,14 +718,14 @@
 		</dependency>
 		<!-- HTML,JS,Css优化 -->
 		<dependency>
-		  <groupId>info.monitorenter</groupId>
-		  <artifactId>cpdetector</artifactId>
-		  <version>1.0.10</version>
+			<groupId>info.monitorenter</groupId>
+			<artifactId>cpdetector</artifactId>
+			<version>1.0.10</version>
 		</dependency>
 		<dependency>
-		  <groupId>antlr</groupId>
-		  <artifactId>antlr</artifactId>
-		  <version>2.7.7</version>
+			<groupId>antlr</groupId>
+			<artifactId>antlr</artifactId>
+			<version>2.7.7</version>
 		</dependency>
 		<dependency>
 			<groupId>net.sourceforge.jchardet</groupId>
@@ -796,9 +733,9 @@
 			<version>1.0</version>
 		</dependency>
 		<dependency>
-		  <groupId>net.sf</groupId>
-		  <artifactId>jargs</artifactId>
-		  <version>1.0</version>
+			<groupId>net.sf</groupId>
+			<artifactId>jargs</artifactId>
+			<version>1.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.yahoo.platform.yui</groupId>
@@ -809,7 +746,7 @@
 					<groupId>rhino</groupId>
 					<artifactId>js</artifactId>
 				</exclusion>
-			</exclusions> 
+			</exclusions>
 		</dependency>
 		<!-- htmlcompressor -->
 		<!-- 需要guava 14.0.1及以前版本 -->
@@ -825,17 +762,11 @@
 			<exclusions>
 				<exclusion>
 					<groupId>com.google.protobuf</groupId>
-  					<artifactId>protobuf-java</artifactId>
+					<artifactId>protobuf-java</artifactId>
 				</exclusion>
 			</exclusions>
-			<!-- 
-			<exclusions>
-				<exclusion>
-					<groupId>com.google.guava</groupId>
-					<artifactId>guava</artifactId>
-				</exclusion>
-			</exclusions>
-			 -->
+			<!-- <exclusions> <exclusion> <groupId>com.google.guava</groupId> <artifactId>guava</artifactId> 
+				</exclusion> </exclusions> -->
 		</dependency>
 		<!-- asm5引用 -->
 		<dependency>
@@ -843,19 +774,11 @@
 			<artifactId>asm</artifactId>
 			<version>5.1</version>
 		</dependency>
-		<!-- WebLogic 12c需要配置部分
-		<dependency>
-			<groupId>com.sun.jersey</groupId>
-			<artifactId>jersey-bundle</artifactId>
-			<version>1.18.1</version>
-		</dependency>
-		<dependency>
-			<groupId>javax.ws.rs</groupId>
-			<artifactId>jsr311-api</artifactId>
-			<version>1.1.1</version>
-		</dependency>
-		-->
-		<!-- CXF 面向SOA,不能升级到最新版本3.x，由于jboss7是引用2.4.6版本，会出现异常-->
+		<!-- WebLogic 12c需要配置部分 <dependency> <groupId>com.sun.jersey</groupId> 
+			<artifactId>jersey-bundle</artifactId> <version>1.18.1</version> </dependency> 
+			<dependency> <groupId>javax.ws.rs</groupId> <artifactId>jsr311-api</artifactId> 
+			<version>1.1.1</version> </dependency> -->
+		<!-- CXF 面向SOA,不能升级到最新版本3.x，由于jboss7是引用2.4.6版本，会出现异常 -->
 		<!-- 但经过jboss-deployment-structure.xml配置，是可以升级并发布到Wildfly -->
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
@@ -888,11 +811,11 @@
 				</exclusion>
 				<exclusion>
 					<groupId>org.apache.geronimo.specs</groupId>
-    				<artifactId>geronimo-jaxws_2.2_spec</artifactId>
+					<artifactId>geronimo-jaxws_2.2_spec</artifactId>
 				</exclusion>
 				<exclusion>
 					<groupId>org.apache.geronimo.specs</groupId>
-    				<artifactId>geronimo-servlet_3.0_spec</artifactId>
+					<artifactId>geronimo-servlet_3.0_spec</artifactId>
 				</exclusion>
 				<exclusion>
 					<groupId>org.apache.geronimo.specs</groupId>
@@ -956,140 +879,67 @@
 				</exclusion>
 				<exclusion>
 					<groupId>asm</groupId>
-  					<artifactId>asm</artifactId>
+					<artifactId>asm</artifactId>
 				</exclusion>
 				<exclusion>
 					<groupId>javax.ws.rs</groupId>
-    				<artifactId>javax.ws.rs-api</artifactId>
+					<artifactId>javax.ws.rs-api</artifactId>
 				</exclusion>
 				<exclusion>
 					<groupId>net.sf.ehcache</groupId>
-  					<artifactId>ehcache-core</artifactId>
+					<artifactId>ehcache-core</artifactId>
 				</exclusion>
 				<exclusion>
 					<groupId>org.hibernate</groupId>
-    				<artifactId>hibernate-core</artifactId>
+					<artifactId>hibernate-core</artifactId>
 				</exclusion>
 				<exclusion>
 					<groupId>org.hibernate</groupId>
-  					<artifactId>hibernate-jpa</artifactId>
+					<artifactId>hibernate-jpa</artifactId>
 				</exclusion>
 				<exclusion>
 					<groupId>org.hibernate</groupId>
-  					<artifactId>hibernate-commons-annotations</artifactId>
+					<artifactId>hibernate-commons-annotations</artifactId>
 				</exclusion>
 				<exclusion>
 					<groupId>org.hibernate</groupId>
-  					<artifactId>hibernate-entitymanager</artifactId>
+					<artifactId>hibernate-entitymanager</artifactId>
 				</exclusion>
 			</exclusions>
 		</dependency>
-		<!-- 
-		<dependency>
-		     <groupId>org.apache.cxf</groupId>
-		     <artifactId>apache-cxf</artifactId>
-		     <version>2.7.12</version>
-		     <type>pom</type>
-		     <exclusions>
-		     	<exclusion>
-					<groupId>org.apache.cxf</groupId>
-					<artifactId>cxf-bundle</artifactId>
-				</exclusion>
-		     	<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>spring-asm</artifactId>
-				</exclusion>
-		     	<exclusion>
-            		<groupId>org.apache.cxf</groupId>
-					<artifactId>cxf-tools-common</artifactId>
-				</exclusion>
-				<exclusion>
-            		<groupId>org.apache.cxf</groupId>
-					<artifactId>cxf-rt-transports-udp</artifactId>
-				</exclusion>
-				<exclusion>
-            		<groupId>org.apache.cxf</groupId>
-					<artifactId>cxf-rt-transports-http-hc</artifactId>
-				</exclusion>
-				<exclusion>
-            		<groupId>org.apache.cxf</groupId>
-					<artifactId>cxf-rt-transports-http-jetty</artifactId>
-				</exclusion>
-				<exclusion>
-            		<groupId>org.apache.cxf</groupId>
-					<artifactId>cxf-rt-transports-http-netty-server</artifactId>
-				</exclusion>
-				<exclusion>
-            		<groupId>org.apache.cxf</groupId>
-					<artifactId>cxf-rt-transports-http-netty-client</artifactId>
-				</exclusion>
-				<exclusion>
-            		<groupId>org.apache.cxf.services.wsn</groupId>
-					<artifactId>cxf-services-wsn-api</artifactId>
-				</exclusion>
-				<exclusion>
-            		<groupId>org.apache.cxf.services.wsn</groupId>
-					<artifactId>cxf-services-wsn-core</artifactId>
-				</exclusion>
-		       	<exclusion>
-            		<groupId>org.apache.cxf</groupId>
-					<artifactId>cxf-rt-transports-jms</artifactId>
-				</exclusion>
-				<exclusion>
-            		<groupId>org.apache.cxf.services.ws-discovery</groupId>
-					<artifactId>cxf-services-ws-discovery-api</artifactId>
-				</exclusion>
-				<exclusion>
-            		<groupId>org.apache.cxf.services.ws-discovery</groupId>
-					<artifactId>cxf-services-ws-discovery-service</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.apache.cxf</groupId>
-					<artifactId>cxf-rt-frontend-simple</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.apache.cxf</groupId>
-					<artifactId>cxf-rt-frontend-jaxrs</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.apache.cxf</groupId>
-					<artifactId>cxf-rt-rs-security-sso-saml</artifactId>
-				</exclusion>
-				
-				<exclusion>
-					<groupId>org.apache.geronimo.specs</groupId>
-    				<artifactId>geronimo-jaxws_2.2_spec</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.slf4j</groupId>
-  					<artifactId>slf4j-jdk14</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.apache.geronimo.specs</groupId>
-    				<artifactId>geronimo-javamail_1.4_spec</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>asm</groupId>
-  					<artifactId>asm</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.codehaus.jettison</groupId>
-  					<artifactId>jettison</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.sun.xml.fastinfoset</groupId>
-    				<artifactId>FastInfoset</artifactId>
-				</exclusion>
-			</exclusions>   
-		  </dependency>
-		 -->		
-		<!--  -->
+		<!-- <dependency> <groupId>org.apache.cxf</groupId> <artifactId>apache-cxf</artifactId> 
+			<version>2.7.12</version> <type>pom</type> <exclusions> <exclusion> <groupId>org.apache.cxf</groupId> 
+			<artifactId>cxf-bundle</artifactId> </exclusion> <exclusion> <groupId>org.springframework</groupId> 
+			<artifactId>spring-asm</artifactId> </exclusion> <exclusion> <groupId>org.apache.cxf</groupId> 
+			<artifactId>cxf-tools-common</artifactId> </exclusion> <exclusion> <groupId>org.apache.cxf</groupId> 
+			<artifactId>cxf-rt-transports-udp</artifactId> </exclusion> <exclusion> <groupId>org.apache.cxf</groupId> 
+			<artifactId>cxf-rt-transports-http-hc</artifactId> </exclusion> <exclusion> 
+			<groupId>org.apache.cxf</groupId> <artifactId>cxf-rt-transports-http-jetty</artifactId> 
+			</exclusion> <exclusion> <groupId>org.apache.cxf</groupId> <artifactId>cxf-rt-transports-http-netty-server</artifactId> 
+			</exclusion> <exclusion> <groupId>org.apache.cxf</groupId> <artifactId>cxf-rt-transports-http-netty-client</artifactId> 
+			</exclusion> <exclusion> <groupId>org.apache.cxf.services.wsn</groupId> <artifactId>cxf-services-wsn-api</artifactId> 
+			</exclusion> <exclusion> <groupId>org.apache.cxf.services.wsn</groupId> <artifactId>cxf-services-wsn-core</artifactId> 
+			</exclusion> <exclusion> <groupId>org.apache.cxf</groupId> <artifactId>cxf-rt-transports-jms</artifactId> 
+			</exclusion> <exclusion> <groupId>org.apache.cxf.services.ws-discovery</groupId> 
+			<artifactId>cxf-services-ws-discovery-api</artifactId> </exclusion> <exclusion> 
+			<groupId>org.apache.cxf.services.ws-discovery</groupId> <artifactId>cxf-services-ws-discovery-service</artifactId> 
+			</exclusion> <exclusion> <groupId>org.apache.cxf</groupId> <artifactId>cxf-rt-frontend-simple</artifactId> 
+			</exclusion> <exclusion> <groupId>org.apache.cxf</groupId> <artifactId>cxf-rt-frontend-jaxrs</artifactId> 
+			</exclusion> <exclusion> <groupId>org.apache.cxf</groupId> <artifactId>cxf-rt-rs-security-sso-saml</artifactId> 
+			</exclusion> <exclusion> <groupId>org.apache.geronimo.specs</groupId> <artifactId>geronimo-jaxws_2.2_spec</artifactId> 
+			</exclusion> <exclusion> <groupId>org.slf4j</groupId> <artifactId>slf4j-jdk14</artifactId> 
+			</exclusion> <exclusion> <groupId>org.apache.geronimo.specs</groupId> <artifactId>geronimo-javamail_1.4_spec</artifactId> 
+			</exclusion> <exclusion> <groupId>asm</groupId> <artifactId>asm</artifactId> 
+			</exclusion> <exclusion> <groupId>org.codehaus.jettison</groupId> <artifactId>jettison</artifactId> 
+			</exclusion> <exclusion> <groupId>com.sun.xml.fastinfoset</groupId> <artifactId>FastInfoset</artifactId> 
+			</exclusion> </exclusions> </dependency> -->
+		<!-- -->
 		<dependency>
 			<groupId>org.codehaus.jra</groupId>
 			<artifactId>jra</artifactId>
 			<version>1.0-alpha-4</version>
 		</dependency>
-		<!-- CXF 面向SOA-->
+		<!-- CXF 面向SOA -->
 		<!-- quartz -->
 		<dependency>
 			<groupId>org.quartz-scheduler</groupId>
@@ -1107,31 +957,26 @@
 			<artifactId>c3p0</artifactId>
 			<version>0.9.1.2</version>
 		</dependency>
-		
+
 		<!-- sap jco3 -->
-		<!-- 
+		<!-- <dependency> <groupId>com.sap</groupId> <artifactId>sapjco</artifactId> 
+			<version>3.0</version> </dependency> -->
 		<dependency>
-			<groupId>com.sap</groupId>
-			<artifactId>sapjco</artifactId>
-			<version>3.0</version>
-		</dependency> 
-		-->
+			<groupId>com.rabbitmq</groupId>
+			<artifactId>amqp-client</artifactId>
+			<version>3.6.4</version>
+		</dependency>
 		<dependency>
-            <groupId>com.rabbitmq</groupId>
-            <artifactId>amqp-client</artifactId>
-            <version>3.6.4</version>
-        </dependency>
+			<groupId>org.apache.thrift</groupId>
+			<artifactId>libthrift</artifactId>
+			<version>0.9.3</version>
+		</dependency>
 		<dependency>
-	　　　　<groupId>org.apache.thrift</groupId>
-	　　　　<artifactId>libthrift</artifactId>
-	　　　　<version>0.9.3</version>
-	　　</dependency>
-		<dependency> 
-		　　　　<groupId>org.slf4j</groupId> 
-		　　　　<artifactId>slf4j-api</artifactId> 
-		　　　　<version>1.7.13</version> 
-		　　</dependency>
-				<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.13</version>
+		</dependency>
+		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 			<version>${hibernate.version}</version>
@@ -1147,9 +992,9 @@
 			<version>${hibernate.version}</version>
 		</dependency>
 		<dependency>
-		    <groupId>com.github.debop</groupId>
-		    <artifactId>hibernate-redis</artifactId>
-		    <version>1.6.2</version>
+			<groupId>com.github.debop</groupId>
+			<artifactId>hibernate-redis</artifactId>
+			<version>1.6.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.xerial.snappy</groupId>
@@ -1161,5 +1006,59 @@
 			<artifactId>cglib</artifactId>
 			<version>3.1</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.kafka</groupId>
+			<artifactId>kafka_2.10</artifactId>
+			<version>0.10.1.0</version>
+		</dependency>
+		<!--hadoop -->
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-common</artifactId>
+			<version>3.0.0-alpha1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-client</artifactId>
+			<version>3.0.0-alpha1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-hdfs</artifactId>
+			<version>3.0.0-alpha1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-core</artifactId>
+			<version>2.6.0-mr1-cdh5.9.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-mapreduce-client-core</artifactId>
+			<version>3.0.0-alpha1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-mapreduce-client-common</artifactId>
+			<version>3.0.0-alpha1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-mapreduce-client-jobclient</artifactId>
+			<version>3.0.0-alpha1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-annotations</artifactId>
+			<version>3.0.0-alpha1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.spark/spark-core_2.10 -->
+		<dependency>
+			<groupId>org.apache.spark</groupId>
+			<artifactId>spark-core_2.10</artifactId>
+			<version>2.0.2</version>
+		</dependency>
+
+
 	</dependencies>
 </project>

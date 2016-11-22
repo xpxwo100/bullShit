@@ -8,7 +8,7 @@ public class TestConsumer {
 	 public static void main(String[] args) {
 	        Properties props = new Properties();
 
-	        props.put("bootstrap.servers", "localhost:9092");
+	        props.put("bootstrap.servers", "localhost:9093");
 	        System.out.println("this is the group part test 1");
 	        //消费者的组id
 	        props.put("group.id", "GroupA");//这里是GroupA或者GroupB
@@ -32,7 +32,7 @@ public class TestConsumer {
 	        while (true) {
 	            ConsumerRecords<String, Integer> records = consumer.poll(100);
 	            for (ConsumerRecord<String, Integer> record : records){
-	            	System.out.printf("offset = %d, key = %s, value = %s", record.offset(), record.key(), record.value()+"\n");
+	            	System.out.printf("offset = %d, key = %s, value = %s", record.offset(),record.partition(), record.key(), record.value()+"\n");
 	            }
 	        }
 	    }

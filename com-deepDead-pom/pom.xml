@@ -147,7 +147,11 @@
 		<!-- 设置源码所在路径 -->
 		<sourceDirectory>src/</sourceDirectory>
 	</build>
-
+		<parent>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-parent</artifactId>
+		    <version>1.4.2.RELEASE</version>
+		</parent>
 	<dependencies>
 		<!-- 单元测试:JUnit -->
 		<dependency>
@@ -694,11 +698,11 @@
 		<!-- <dependency> <groupId>org.apache.httpcomponents</groupId> <artifactId>httpasyncclient</artifactId> 
 			<version>${httpclient.version}</version> </dependency> -->
 		<!-- 数据推送 -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.apache</groupId>
 			<artifactId>activemq</artifactId>
 			<version>5.10.0</version>
-		</dependency>
+		</dependency> -->
 		<dependency>
 			<groupId>org.apache</groupId>
 			<artifactId>xbean-spring</artifactId>
@@ -1058,7 +1062,42 @@
 			<artifactId>spark-core_2.10</artifactId>
 			<version>2.0.2</version>
 		</dependency>
+		
+		    <dependency>
+		        <groupId>org.springframework.boot</groupId>
+		        <artifactId>spring-boot-starter-web</artifactId>
+		    </dependency>
+		    
+		    <dependency>
+				  <groupId>org.springframework.boot</groupId>
+				  <artifactId>spring-boot-starter</artifactId>
+				  <exclusions>
+				    <exclusion>
+				      <groupId>org.springframework.boot</groupId>
+				      <artifactId>spring-boot-starter-logging</artifactId>
+				    </exclusion>
+				  </exclusions>
+				</dependency>
 
-
+		<dependency>
+		  <groupId>org.springframework.boot</groupId>
+		  <artifactId>spring-boot-starter-web</artifactId>
+		  <exclusions>
+		    <exclusion>
+		      <groupId>org.springframework.boot</groupId>
+		      <artifactId>spring-boot-starter-logging</artifactId>
+		    </exclusion>
+		  </exclusions>
+		</dependency>
+		<dependency>
+    <groupId>org.apache.activemq</groupId>
+    <artifactId>activemq-core</artifactId>
+    <version>5.7.0</version>
+</dependency>
+			<dependency>
+			    <groupId>org.deeplearning4j</groupId>
+			    <artifactId>deeplearning4j-core</artifactId>
+			    <version>0.7.0</version>
+			</dependency>
 	</dependencies>
 </project>

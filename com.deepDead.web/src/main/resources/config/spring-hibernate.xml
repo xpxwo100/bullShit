@@ -110,7 +110,7 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
- <bean id="proxyCreator"
+ 	<bean id="proxyCreator"
 		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator"
 		p:beanNames="ICommand,*Command,*Advice" p:interceptorNames="transactionInterceptor" />
 	

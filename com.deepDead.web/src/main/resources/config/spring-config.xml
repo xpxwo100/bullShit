@@ -10,8 +10,9 @@
 	<import resource="classpath:config/system/spring/spring-datasource.xml" />
     <import resource="classpath:config/system/spring/spring-druid.xml" /> -->
 	<import resource="classpath:config/spring-scan.xml" />
-	<import resource="classpath:config/spring-mybatis.xml" />
+	<import resource="classpath:config/spring-dataSource.xml" />
 	<import resource="classpath:config/spring-hibernate.xml" />
+	<import resource="classpath:config/spring-mybatis.xml" />
 	<!-- <import resource="classpath:config/web/util/spring-util.xml" /> -->
 	<!--cache-->
 	<!-- <import resource="classpath:config/web/cache/spring-redis.xml" /> -->

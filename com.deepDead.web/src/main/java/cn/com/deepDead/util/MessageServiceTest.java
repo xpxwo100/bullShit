@@ -1,9 +1,14 @@
 package cn.com.deepDead.util;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
 
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -22,7 +27,7 @@ import com.maxmind.geoip.LookupService;
 public class MessageServiceTest extends AbstractTransactionalJUnit4SpringContextTests {
 	@Value("${dbdriver}")
 	private String aa;//获得配置信息
-	@Autowired
+	@Autowired 
 	private TestMapper testMapper;
 	@Autowired
 	private HibernateUtil hibernateUtil;
@@ -50,5 +55,12 @@ public class MessageServiceTest extends AbstractTransactionalJUnit4SpringContext
 		}
 		
 		//System.out.println(list2.toString());
+	}
+	public void test2() throws IOException{
+		String resource = "org/mybatis/example/mybatis-config.xml";
+		InputStream inputStream = Resources.getResourceAsStream(resource);
+		SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+		SqlSession session = sqlSessionFactory.openSession();
+		TestMapper testMapper = session.getMapper(TestMapper.class);
 	}
 }
